@@ -10,14 +10,19 @@ const Home = () => {
   const { user, logout } = useContext(AuthContext);
 
   useEffect(() => {
-    const fetchGigs = async () => {
-      try {
-        const res = await axios.get(`https://gigflow-mern-assignment.onrender.com/api/gigs?search=${search}`);
-        setGigs(res.data);
-      } catch (err) {
-        console.error("Error fetching gigs", err);
-      }
-    };
+const fetchGigs = async () => {
+  try {
+    
+    const res = await axios.get(
+      `https://gigflow-mern-assignment.onrender.com/api/gigs?search=${search}`,
+      { withCredentials: true } 
+    );
+    
+    setGigs(res.data);
+  } catch (err) {
+    console.error("Error fetching gigs", err);
+  }
+};
     fetchGigs();
   }, [search]);
 
