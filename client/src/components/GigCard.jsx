@@ -12,7 +12,7 @@ const GigCard = ({ gig }) => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/bids",
+        "https://gigflow-mern-assignment.onrender.com/api/bids",
         { gigId: gig._id, price: bidAmount, message },
         { withCredentials: true }
       );

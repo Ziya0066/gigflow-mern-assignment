@@ -12,7 +12,7 @@ const AddGig = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/gigs",
+        "https://gigflow-mern-assignment.onrender.com/api/gigs",
         { title, description, budget },
         { withCredentials: true } // REQUIRED: Sends your login cookie to the server
       );

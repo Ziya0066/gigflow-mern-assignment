@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchGigs = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/gigs?search=${search}`);
+        const res = await axios.get(`https://gigflow-mern-assignment.onrender.com/api/gigs?search=${search}`);
         setGigs(res.data);
       } catch (err) {
         console.error("Error fetching gigs", err);

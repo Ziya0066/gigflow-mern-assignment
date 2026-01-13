@@ -10,9 +10,9 @@ const ManageGig = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const gigRes = await axios.get(`http://localhost:5000/api/gigs/${id}`);
+        const gigRes = await axios.get(`https://gigflow-mern-assignment.onrender.com/api/gigs/${id}`);
         setGig(gigRes.data);
-        const bidsRes = await axios.get(`http://localhost:5000/api/bids/${id}`, { withCredentials: true });
+        const bidsRes = await axios.get(`https://gigflow-mern-assignment.onrender.com/api/bids/${id}`, { withCredentials: true });
         setBids(bidsRes.data);
       } catch (err) {
         console.error("Error loading data", err);
@@ -24,7 +24,7 @@ const ManageGig = () => {
   const handleHire = async (bidId) => {
     if (!window.confirm("Are you sure? This will reject all other candidates.")) return;
     try {
-      await axios.patch(`http://localhost:5000/api/bids/${bidId}/hire`, {}, { withCredentials: true });
+      await axios.patch(`https://gigflow-mern-assignment.onrender.com/api/bids/${bidId}/hire`, {}, { withCredentials: true });
       alert("Hiring Successful!");
       window.location.reload();
     } catch (err) {
