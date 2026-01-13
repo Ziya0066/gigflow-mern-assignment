@@ -33,12 +33,13 @@ export const loginUser = async (req, res) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
       // Send Cookie
-      res.cookie('jwt', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV !== 'development', // Use HTTPS in production
-        sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 60 * 1000 // 30 Days
-      });
+      // Send Cookie
+res.cookie('jwt', token, {
+  httpOnly: true,
+  secure: true,       
+  sameSite: 'none',
+  maxAge: 30 * 24 * 60 * 60 * 1000
+});
 
       res.json({ _id: user._id, name: user.name, email: user.email, role: user.role });
     } else {
