@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:5173', // This will be your Frontend URL
+  origin: "https://gigflow-mern-assignment.vercel.app", // <--- The fix
   credentials: true
 }));
 
