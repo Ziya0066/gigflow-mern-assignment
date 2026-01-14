@@ -14,7 +14,7 @@ const AddGig = () => {
       await axios.post(
         "https://gigflow-mern-assignment.onrender.com/api/gigs",
         { title, description, budget },
-        { withCredentials: true } // REQUIRED: Sends your login cookie to the server
+        { withCredentials: true }
       );
       alert("Job Posted Successfully!");
       navigate("/"); // Go back to Home

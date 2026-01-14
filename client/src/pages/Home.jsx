@@ -67,7 +67,7 @@ const fetchGigs = async () => {
             From web development to design, find the talent you need to grow your business today.
           </p>
           
-          {/* Enhanced Search Bar */}
+          {/*Search Bar */}
           <div className="max-w-xl mx-auto relative">
             <input
               type="text"

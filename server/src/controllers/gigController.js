@@ -8,7 +8,7 @@ export const createGig = async (req, res) => {
       title,
       description,
       budget,
-      ownerId: req.user._id // Comes from the 'protect' middleware
+      ownerId: req.user._id 
     });
     res.status(201).json(gig);
   } catch (error) {
@@ -19,12 +19,12 @@ export const createGig = async (req, res) => {
 // 2. GET ALL OPEN GIGS
 export const getAllGigs = async (req, res) => {
   try {
-    // Search filter (optional)
+    
     const keyword = req.query.search
       ? { title: { $regex: req.query.search, $options: 'i' } }
       : {};
 
-    // Find only 'open' gigs
+  
     const gigs = await Gig.find({ ...keyword, status: 'open' })
       .populate('ownerId', 'name email');
       

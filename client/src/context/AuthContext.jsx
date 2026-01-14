@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Check if user is logged in (User data saved in localStorage for simplicity in this step)
+  
   useEffect(() => {
     const storedUser = localStorage.getItem("userInfo");
     if (storedUser) {

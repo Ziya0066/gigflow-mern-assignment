@@ -35,7 +35,7 @@ export const getBidsForGig = async (req, res) => {
   }
 };
 
-// 3. HIRE FREELANCER (The Logic Core)
+// 3. HIRE FREELANCER
 export const hireFreelancer = async (req, res) => {
   try {
     const { bidId } = req.params;
@@ -47,8 +47,7 @@ export const hireFreelancer = async (req, res) => {
     // B. Find the Gig
     const gig = await Gig.findById(bid.gigId);
 
-    // --- CRITICAL CHECK ---
-    // This prevents the "Race Condition". If it's already assigned, STOP.
+    
     if (gig.status === 'assigned') {
       return res.status(400).json({ message: 'Gig already assigned!' });
     }
